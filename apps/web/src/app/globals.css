@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* Design tokens carried over from the market.html mockup.
+   Raw values live on :root (so dark mode can swap them); @theme exposes them as
+   Tailwind utilities like bg-surface, text-muted, border-line, bg-src-fb. */
+:root {
+  --bg: #f3f4f1; --surface: #ffffff; --ink: #1b2430; --muted: #5d6672; --line: #dcdfd8;
+  --tag: #f2b84b; --tag-ink: #3a2a05; --accent: #1f5f8b; --accent-soft: #e3edf4; --danger: #b4372f;
+  --src-fb: #3b6fd8; --src-kj: #2f8f4e; --src-kr: #e3742b; --src-cl: #7b4fb8; --src-eb: #c4302b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #13181e; --surface: #1b222a; --ink: #e8ecef; --muted: #9aa4ae; --line: #2c353f;
+    --tag: #e9ad3d; --tag-ink: #2a1e03; --accent: #6fb0dc; --accent-soft: #1c3346; --danger: #f07a70;
+    --src-fb: #7aa0f0; --src-kj: #5cc07c; --src-kr: #f39a5c; --src-cl: #b08ee6; --src-eb: #ef7a74;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-tag: var(--tag);
+  --color-tag-ink: var(--tag-ink);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
+  --color-src-fb: var(--src-fb);
+  --color-src-kj: var(--src-kj);
+  --color-src-kr: var(--src-kr);
+  --color-src-cl: var(--src-cl);
+  --color-src-eb: var(--src-eb);
+  --font-display: var(--font-bricolage), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-atkinson), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Menlo, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

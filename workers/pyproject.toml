@@ -1,0 +1,26 @@
+[project]
+name = "bettermarket-workers"
+version = "0.1.0"
+description = "Ingestion, search indexing and recommendation jobs for BetterMarket"
+requires-python = ">=3.12"
+dependencies = [
+    "psycopg[binary]>=3.2",
+    "meilisearch>=0.36",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+bm-worker = "bettermarket_workers.__main__:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["bettermarket_workers*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
