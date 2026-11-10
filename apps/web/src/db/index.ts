@@ -1,3 +1,4 @@
+import "@/load-env"; // server workers don't inherit env loaded in next.config.ts
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as schema from "./schema";
